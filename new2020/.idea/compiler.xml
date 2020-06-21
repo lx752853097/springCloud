@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cloud-common" />
+        <module name="cloud-config-client3355" />
+        <module name="cloud-config-client3366" />
+        <module name="cloud-config3344" />
+        <module name="cloud-consul-consumer-order80" />
+        <module name="cloud-consul-provider-payment8006" />
+        <module name="cloud-consumer-feign-order80" />
+        <module name="cloud-consumer-order80" />
+        <module name="cloud-eureka-server7001" />
+        <module name="cloud-eureka-server7002" />
+        <module name="cloud-eureka-server7003" />
+        <module name="cloud-gateWay-gateWay9527" />
+        <module name="cloud-hystrixDashboard" />
+        <module name="cloud-provider-mayment8001" />
+        <module name="cloud-provider-mayment8002" />
+        <module name="cloud-service" />
+        <module name="cloud-stream-rabbitMQ-consumer8802" />
+        <module name="cloud-stream-rabbitMQ-consumer8803" />
+        <module name="cloud-stream-rabbitMQ-provider8801" />
+        <module name="cloud-zookeeper-consumer-order80" />
+        <module name="cloud-zookeeper-provider-payment8004" />
+        <module name="cloudAlibaba-config-client3377" />
+        <module name="cloudAlibaba-consumer-order83" />
+        <module name="cloudAlibaba-provider-payMent9001" />
+        <module name="cloudAlibaba-provider-payMent9002" />
+        <module name="cloudAlibaba-sentinel8401" />
+        <module name="myRabbitMQ" />
+        <module name="seata-account-service2002" />
+        <module name="seata-order-service2001" />
+        <module name="seata-storage-service2003" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud-feign-consumer-oder80" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

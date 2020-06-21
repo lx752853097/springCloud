@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/rabbit
+   http://www.springframework.org/schema/rabbit/spring-rabbit-1.4.xsd
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+    <!--这里消费者和生产者应该在两个项目里各自运行-->
+
+    <!-- 定义RabbitMQ的连接工厂 -->
+    <rabbit:connection-factory id="connectionFactory" host="127.0.0.1" port="5672" username="guest" password="guest" virtual-host="/"/>
+    <!-- 定义队列，自动声明 -->
+    <rabbit:queue name="zpcQueue" auto-declare="true"/>
+    <!-- MQ的管理，包括队列、交换器等 -->
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    <!--定义模板（可以指定交换机或队列）这个应该在生产者中配置-->
+    <rabbit:template  id="rabbitTemplate" connection-factory="connectionFactory" exchange="fanoutExchange" />
+    <!-- 定义Rabbit模板，指定连接工厂以及定义exchange -->
+    <!-- <rabbit:template id="amqpTemplate" connection-factory="connectionFactory"
+    exchange="fanoutExchange" routing-key="foo.bar" /> -->
+    <!-- 定义交换器，把Q绑定到交换机，自动声明 可以选中各种类型的交换器 这里选择的是fanout类型的-->
+    <!--这个应该在生产者中配置-->
+    <rabbit:fanout-exchange name="fanoutExchange" auto-declare="true">
+        <rabbit:bindings>
+            <rabbit:binding queue="zpcQueue"/>
+        </rabbit:bindings>
+    </rabbit:fanout-exchange>
+
+    <!--定义监听,这个是消费者里应该配置的-->
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener ref="foo" method="listen" queue-names="zpcQueue"/>
+    </rabbit:listener-container>
+
+    <bean id="foo" class="com.lv.spring.service.Foo"/>
+
+</beans>

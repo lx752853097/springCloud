@@ -1,0 +1,21 @@
+spring: #从springcloud config配置服务获取配置信息
+  cloud:
+    config:
+      #客户端  如果要更改配置，无需启动3344，重启3355这个项目就可以了。
+      name: microservicecloud-config-client #需要从github上读取的资源名称，注意没有yml后缀名
+      profile: test #本次访问的配置项
+      label: master #分支
+      uri: http://127.0.0.1:3344 #配置中心服务端地址  综上所述获取的是     http://127.0.0.1:3344/master/microservicecloud-config-client中的test环境 或者 http://127.0.0.1:3344/master/microservicecloud-config-client-test中的test环境
+  #连接rabbitMQ，15672是web管理界面端口，5672是MQ的访问端口
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+#暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,13 @@
+server:
+  port: 80
+spring:
+  application:
+    name: Cloud_consul_consumer_order80
+  cloud:
+    consul:
+      host: localhost # consul注册中心地址
+      port: 8500 # consul注册中心端口号
+      discovery:
+        hostname: 127.0.0.1  #服务暴露的IP地址
+        service-name: oderConsul80 #注册中心里的服务别名
+        register: false #不作为服务进行注册

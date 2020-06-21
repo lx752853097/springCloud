@@ -1,0 +1,8 @@
+server:
+  port: 3377
+spring:
+  application:
+    name: nacos-config
+  profiles:
+    active: test #测试环境
+  #active: dev 开发环境

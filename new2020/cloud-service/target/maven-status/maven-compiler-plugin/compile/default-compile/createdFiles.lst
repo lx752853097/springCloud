@@ -1,0 +1,4 @@
+com\lv\cloud\service\fallBackFactory\ClientServiceFallbackFactory$1.class
+com\lv\cloud\service\fallBackFactory\PaymentFallback.class
+com\lv\cloud\service\fallBackFactory\ClientServiceFallbackFactory.class
+com\lv\cloud\service\PaymentService.class

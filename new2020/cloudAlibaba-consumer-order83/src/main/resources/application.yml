@@ -1,0 +1,15 @@
+server:
+  port: 83
+
+spring:
+  application:
+    name: nacos-provider #注册中心的服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 #注册中心地址
+
+
+#这个可以不配，只是为了方面管理注册中心服务，方便retemplate引用；
+service-url:
+  nacos-payment-service: http://nacos-payment-privider

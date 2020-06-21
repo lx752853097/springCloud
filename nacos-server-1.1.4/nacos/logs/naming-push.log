@@ -1,0 +1,128 @@
+2020-05-14 10:18:54,423 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:20:34,190 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:20:34,190 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:20:49,778 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:27:53,209 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:29:06,490 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:30:09,617 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:45:48,854 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:46:02,447 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:47:16,736 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:47:27,237 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:47:43,627 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:48:25,700 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 10:48:40,713 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 11:08:24,755 INFO DEFAULT_GROUP@@nacos-provider is changed, add it to push queue.
+
+2020-05-14 11:09:49,421 INFO DEFAULT_GROUP@@nacos-provider is changed, add it to push queue.
+
+2020-05-14 11:10:01,218 INFO DEFAULT_GROUP@@nacos-provider is changed, add it to push queue.
+
+2020-05-14 11:10:49,819 INFO DEFAULT_GROUP@@nacos-provider is changed, add it to push queue.
+
+2020-05-14 11:10:59,457 INFO DEFAULT_GROUP@@nacos-provider is changed, add it to push queue.
+
+2020-05-14 11:11:07,747 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 11:15:36,522 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 11:15:36,527 INFO serviceName: DEFAULT_GROUP@@nacos-payment-privider changed, schedule push for: 192.168.179.1:53180, agent: Nacos-Java-Client:v1.1.1, key: 192.168.179.1,53180,143406958160500
+
+2020-05-14 11:15:36,527 INFO send udp packet: 192.168.179.1,53180,143406958160500
+
+2020-05-14 11:15:36,556 INFO received ack: {"type": "push-ack", "lastRefTime":"143406958160500", "data":""} from: 192.168.179.1:, cost: 53180 ms, unacked: 29, total push: 0
+
+2020-05-14 11:15:44,051 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 11:15:44,051 INFO serviceName: DEFAULT_GROUP@@nacos-payment-privider changed, schedule push for: 192.168.179.1:53180, agent: Nacos-Java-Client:v1.1.1, key: 192.168.179.1,53180,143414485897600
+
+2020-05-14 11:15:44,051 INFO send udp packet: 192.168.179.1,53180,143414485897600
+
+2020-05-14 11:15:44,054 INFO received ack: {"type": "push-ack", "lastRefTime":"143414485897600", "data":""} from: 192.168.179.1:, cost: 53180 ms, unacked: 3, total push: 0
+
+2020-05-14 11:15:51,506 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 11:15:51,506 INFO serviceName: DEFAULT_GROUP@@nacos-payment-privider changed, schedule push for: 192.168.179.1:53180, agent: Nacos-Java-Client:v1.1.1, key: 192.168.179.1,53180,143421940703900
+
+2020-05-14 11:15:51,508 INFO send udp packet: 192.168.179.1,53180,143421940703900
+
+2020-05-14 11:15:51,511 INFO received ack: {"type": "push-ack", "lastRefTime":"143421940703900", "data":""} from: 192.168.179.1:, cost: 53180 ms, unacked: 3, total push: 0
+
+2020-05-14 11:15:52,575 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 11:15:52,575 INFO serviceName: DEFAULT_GROUP@@nacos-payment-privider changed, schedule push for: 192.168.179.1:53180, agent: Nacos-Java-Client:v1.1.1, key: 192.168.179.1,53180,143423009764800
+
+2020-05-14 11:15:52,575 INFO send udp packet: 192.168.179.1,53180,143423009764800
+
+2020-05-14 11:15:52,578 INFO received ack: {"type": "push-ack", "lastRefTime":"143423009764800", "data":""} from: 192.168.179.1:, cost: 53180 ms, unacked: 3, total push: 0
+
+2020-05-14 11:33:57,681 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 11:33:57,681 INFO serviceName: DEFAULT_GROUP@@nacos-payment-privider changed, schedule push for: 192.168.179.1:53180, agent: Nacos-Java-Client:v1.1.1, key: 192.168.179.1,53180,144508115898000
+
+2020-05-14 11:33:57,681 INFO send udp packet: 192.168.179.1,53180,144508115898000
+
+2020-05-14 11:33:57,685 INFO received ack: {"type": "push-ack", "lastRefTime":"144508115898000", "data":""} from: 192.168.179.1:, cost: 53180 ms, unacked: 4, total push: 0
+
+2020-05-14 11:34:32,109 INFO DEFAULT_GROUP@@nacos-payment-privider is changed, add it to push queue.
+
+2020-05-14 11:34:32,109 INFO serviceName: DEFAULT_GROUP@@nacos-payment-privider changed, schedule push for: 192.168.179.1:53180, agent: Nacos-Java-Client:v1.1.1, key: 192.168.179.1,53180,144542543603300
+
+2020-05-14 11:34:32,109 INFO send udp packet: 192.168.179.1,53180,144542543603300
+
+2020-05-14 11:34:32,112 INFO received ack: {"type": "push-ack", "lastRefTime":"144542543603300", "data":""} from: 192.168.179.1:, cost: 53180 ms, unacked: 3, total push: 0
+
+2020-05-14 14:36:23,528 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 14:37:13,456 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 14:37:28,745 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 15:51:46,161 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:17:08,500 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:17:16,936 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:17:22,519 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:17:31,017 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:17:52,671 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:19:32,068 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:20:19,672 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:20:27,955 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:20:38,502 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:20:46,969 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:21:06,535 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:22:52,462 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:25:35,467 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:25:45,109 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:28:22,542 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+
+2020-05-14 16:28:37,554 INFO DEFAULT_GROUP@@nacos-config is changed, add it to push queue.
+

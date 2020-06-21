@@ -1,0 +1,58 @@
+server:
+  port: 8802
+spring:
+  application:
+    name: rabbit-consumer
+  cloud:
+#Destination Binders:
+#目标绑定器，目标指的是 kafka 还是 RabbitMQ，绑定器就是封装了目标中间件的包。如果操作的是 kafka 就使用 kafka binder ，如果操作的是 RabbitMQ 就使用 rabbitmq binder。
+#Destination Bindings：
+#外部消息传递系统和应用程序之间的桥梁（channel），提供消息的“生产者”和“消费者”（由目标绑定器创建）
+#如果设置了 group，那么 group 名称就会成为 queue 的名称，如果没有设置 group ，那么 queue 就会根据 destination + 随机字符串的方式命名。0
+#没有设置group，就相当于不同的组，那么不同组消费者都会消费，如果在同一组中，那么消费者都处于竞争关系，消息只会被消费一次
+    stream:
+      binders: #在此处配置要绑定的rabbitMQ的服务信息;
+        local_rabbit: #定义binder绑定器的名称
+          type: rabbit #底层需要的消息中间件类型
+          environment: #配置rabbitMQ的相关环境
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        input: #这个是一个channel通道名称，根据接口中的方法注解 @input 的名字来的来的 比如Source和sink接口,只要destination、binder相同那就都是这个主题的消费者，所以这里就用output这个信道
+          destination: studyExchange #这个是rabbitMQ交换机的名称
+          content-type: application/json #设置消息类型，这里为json，  文本为： text/plain
+          binder: local_rabbit #设置绑定器，与上面对应，需要跟那个rabbit连接
+          group: consumer
+
+        #output: #这个是一个channel通道名称，根据接口中的方法注解 @output 的名字来的来的 比如Source(生产者)和sink(消费者)接口
+          #destination: studyExchange #这个是rabbitMQ交换机的名称
+          #content-type: application/json #设置消息类型，这里为json，  文本为： text/plain
+          #binder: local_rabbit #设置绑定器，与上面对应，需要跟那个rabbit连接
+        #log_output: #这个是一个channel通道名称，根据接口中的方法注解 @output 的名字来的来的 比如Source(生产者)和sink(消费者)接口
+          #destination: studyExchange #这个是rabbitMQ交换机的名称
+          #content-type: application/json #设置消息类型，这里为json，  文本为： text/plain
+          #binder: local_rabbit #设置绑定器，与上面对应，需要跟那个rabbit连接
+
+
+eureka:
+  instance:
+    instance-id: cloud-rabbitMQ-consumer8802
+    prefer-ip-address: true #访问路径可以显示IP地址，再Eureka平台里的服务实例上 会显示IP(鼠标移上去)
+    lease-renewal-interval-in-seconds: 30 #eurekaClient客户端发送心跳的间隔时间；默认为30
+    lease-expiration-duration-in-seconds: 90 #eureka服务端收到最后一次心跳后等待是的时间上线，默认为90s，超时就剔除服务(除去自我保护的情况下）
+  client:
+    service-url:
+      #defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+#info信息，在eureka服务界面中服务连接后的信息
+#访问路径可以显示IP地址，再Eureka平台里的服务实例 会显示IP(鼠标点击后显示的信息)
+info:
+  app.name: atguigu-microservicecloud
+  company.name: www.lv.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

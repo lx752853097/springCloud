@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.107.108.246:8848 #Nacos注册中心地址
+        namespace: 5ece6231-b5e3-4581-81b2-b8279b44fb59 #注册服务到哪个命名空间
+
+      config:
+        server-addr: 47.107.108.246:8848 #Nacos配置心中地址
+        file-extension: yaml #指定yaml格式的配置
+        namespace: 5ece6231-b5e3-4581-81b2-b8279b44fb59 #拉取配置文件的命名空间
+        group: TEST_GROUP #拉取配置的配置中心分组
+
+#在 Nacos Spring Cloud 中，dataId 的完整格式如下：(启动微服务之后，会从Nacos的配置中心，按照这个dataId拉取配置)
+#${prefix}-${spring.profile.active}.${file-extension}
+#这里的dataId为：nacos-config-dev.yaml
+
+#prefix 默认为 spring.application.name 的值，也可以通过配置项 spring.cloud.nacos.config.prefix来配置。
+#file-exetension 为配置内容的数据格式，可以通过配置项 spring.cloud.nacos.config.file-extension 来配置。目前只支持 properties 和 yaml 类型。
+#spring.profile.active 即为当前环境对应的 profile，详情可以参考 Spring Boot文档。 注意：当 spring.profile.active 为空时，对应的连接符 - 也将不存在，dataId 的拼接格式变成 ${prefix}.${file-extension}
+#通过 Spring Cloud 原生注解 @RefreshScope 实现配置自动更新;

@@ -1,0 +1,40 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config3344
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lx752853097/microservicecloud-config.git
+          password: lx752853097
+          username: lvxiang4878
+          #search-paths: microservicecloud-config #搜索目录
+      #label: master #读取分支，默认是master分支
+
+  #连接rabbitMQ，15672是web管理界面端口，5672是MQ的访问端口
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    #register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 30 #eurekaClient客户端发送心跳的间隔时间；默认为30
+     
+#暴露监控端点
+#rabbitmq 相关配置，暴露bus刷新配置的端点；
+#SpringBoot的Endpoint主要是用来监控应用服务的运行状况，并集成在Mvc中提供查看接口
+management:
+  endpoints: #暴露bus刷新配置的端点；/bus/refresh用于刷新 所有绑定到 刷新点的 配置项。
+    web:
+      exposure:
+        include: "bus-refresh"
+

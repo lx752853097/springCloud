@@ -1,0 +1,10 @@
+server:
+  port: 80
+spring:
+  application:
+    name: Cloud_zookeeper_consumer_order80
+  cloud:
+    zookeeper:
+      connect-string: 47.107.108.246:2181
+      discovery:
+        #register: false #是否注册进zookeeper，默认为true

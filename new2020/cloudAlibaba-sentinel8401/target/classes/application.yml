@@ -1,0 +1,55 @@
+server:
+  port: 8401
+spring:
+  application:
+    name: sentinel
+  cloud:
+    sentinel:
+      transport:
+        port: 8719 #默认8719，假如端口被占用，自动从8719开始+1扫描，直至找到未被占用的端口；
+                   #将在应用程序的相应服务器上启动HTTP Server，并且该服务器将与Sentinel仪表板进行交互。
+                   #例如，如果在Sentinel仪表板中添加了速率限制规则，则规则数据将被推送到HTTP Server并由HTTP Server接收，然后HTTP Server将规则注册到Sentinel。
+                   #sentinel Dashborad 与HTTP Server 交互，使用的IP 是内网IP,
+                   #使用这个spring.cloud.sentinel.transport.client-ip，sentinel Dashborad 与HTTP Server 交互应该可以连接外网，但是实时监控没有数据，其他的有数据；
+        client-ip: 192.168.3.39
+        dashboard: 192.168.3.111:8080 #配置sentinel Dashboard监控平台地址，表示注册到sentinel Dashboard
+      #datasource: #配置文件的方式配置动态数据源
+        #ds1:
+          #nacos:
+            #server-addr: 47.107.108.246:1111
+            #dataId: ${spring.application.name}
+            #groupId: DEFAULT_GROUP
+            #data-type: json
+            #rule-type: flow
+
+
+    nacos:
+      discovery:
+        server-addr: 47.107.108.246:1111 #nacos 服务注册中心地址
+
+# 设置feign客户端超时时间(OpenFeign默认支持ribbon)
+ribbon:
+  #在com.netflix.client.config.DefaultClientConfigImpl#getProperty(java.lang.String)方法里面，会读取配置文件中配置的ribbon的超时时间，
+  #优先使用 服务名.ribbon.ReadTimeout这个配置，如果没有则使用ribbon.ReadTimeout，
+  #还没有则使用默认值, ps:ribbon.ReadTimeout和ribbon.ConnectTimeout的默认值都是1000毫秒，
+  #连接超时设置1秒钟还好，ReadTimeout一秒钟太短了，需要加大点，不过也要按需调整。
+  # 指的是建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 5000
+  # 指的是建立连接所用的时间,适用于网络状态正常的情况下,两端连接所用的时间
+  #ConnectTimeout: 5000
+
+#激活sentinel对Feign的支持
+feign:
+  sentinel:
+    enabled: true
+
+#暴露所有监控端点，以被sentinel Dashboard监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#这个可以不配，只是为了方面管理注册中心服务，方便retemplate引用；
+service-url:
+  nacos-payment-service: http://nacos-payment-privider

@@ -1,0 +1,41 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: getway9527
+  cloud:
+    gateway: #默认情况下Gatway会根据注册中心注册的服务列表,  以注册中心上微服务名为路径创建动态路由进行转发,从而实现动态路由的功能
+      discovery:
+        locator:
+          enabled: true #开启从注册中心动态创建路由功能，利用微服务名（作为路径）进行路由
+
+      routes:
+        - id: payment_1 #路由的id，没有固定规则但要求唯一；建议配合服务名
+          #uri: http://127.0.0.1:8001 #匹配后提供服务的路由地址
+          uri: lb://cloud-provider-payment  #CLOUD-PROVIDER-PAYMENT 大小写不敏感
+          predicates: #断言，与路径相匹配的进行路由,(请求满足条件就进行路由，相当于sql语句where的and条件语句)
+            - Path=/getAll/**  #Path  开头大写
+            - After=2020-04-26T11:02:45.324+08:00[Asia/Shanghai] #某个时间后才能访问
+            #- Cookie=chocolate, ch.p  #cookie中有个名为chocolate的key，那么它的value必须匹配正则表达式(ch.p )才能路由
+            #- Header=X-Request-Id, \d+ #如果请求中的Header具有名为X-Request-Id，其值与\d+正则表达式匹配的标头（即，其值为一个或多个数字），则此路由匹配。
+            #- Host=**.somehost.org,**.anotherhost.org #如果请求中的Header具有名为Host,其值d+正则表达式匹配（**.somehost.org,**.anotherhost.org）,则进行路由
+            #- Method=GET,POST #请求必须是GET或者POST请求才会进行路由
+            #- Query=green #如果请求包含green查询参数，则路由匹配。
+            #- Query=red, gree. #如果请求中的具有名为red的查询参数，其值与正则表达式（gree）匹配，则此路由匹配。
+
+        - id: payment_2
+          #uri: http://127.0.0.1:8001 #匹配后提供服务的路由地址
+          uri: lb://CLOUD-PROVIDER-PAYMENT
+          predicates:
+            - Path=/getAllTimeOut/**
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 30 #eurekaClient客户端发送心跳的间隔时间；默认为30
+

@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "spring.cache.redis",
+      "type": "com.lv.cloud.config.RedisConfig",
+      "sourceType": "com.lv.cloud.config.RedisConfig"
+    },
+    {
+      "name": "spring.datasource",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.lv.cloud.config.DruidConfig",
+      "sourceMethod": "druib()"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
